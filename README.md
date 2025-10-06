@@ -1,3 +1,4 @@
+# For automatic daily backups, run autocron.sh using cron (or launchd on Mac)
 # AutoBackup Vault 🗂️
 ### Smart File Backup and Recovery System
 
