@@ -1,3 +1,14 @@
+# Log rotation
+LOG_FILE=~/Desktop/AutoBackupVault/report.txt
+MAX_SIZE=1048576  # 1 MB in bytes
+
+if [ -f "$LOG_FILE" ]; then
+    FILE_SIZE=$(stat -f%z "$LOG_FILE")
+    if [ "$FILE_SIZE" -ge "$MAX_SIZE" ]; then
+        mv "$LOG_FILE" "~/Desktop/AutoBackupVault/report_$(date +%Y%m%d).txt"
+        touch "$LOG_FILE"
+    fi
+fi
 #!/bin/bash
 
 # AutoBackup Vault - Smart File Backup & Recovery System
