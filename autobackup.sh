@@ -1,3 +1,14 @@
+if [ "$1" == "--restore" ]; then
+    echo "Are you sure you want to overwrite existing files? (y/n)"
+    read answer
+    if [ "$answer" != "y" ]; then
+        echo "Restore canceled by user."
+        exit 0
+    fi
+    # Continue with restore process
+    cp -r ~/Desktop/AutoBackupVault/Backups/* ~/Desktop/AutoBackupVault/SourceFiles/
+    echo "$(date): Restore completed" >> ~/Desktop/AutoBackupVault/report.txt
+fi
 # Log rotation
 LOG_FILE=~/Desktop/AutoBackupVault/report.txt
 MAX_SIZE=1048576  # 1 MB in bytes
